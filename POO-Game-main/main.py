@@ -8,6 +8,10 @@ class Carro:
         self.carro = carro
         super().__init__(self.posicao_carro)
         
+pontuaçao = 0
+
+        
+#Sistema de pontuação ?
 
         
 
