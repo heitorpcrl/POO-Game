@@ -1,0 +1,159 @@
+import time
+import os
+import random 
+
+while True: #looping para o jogador entender a lógica
+    print("")
+    print("Bem-Vindo ao jogo das portas")
+    time.sleep(1)
+    print("""
+Esse jogo funciona da seguinte forma:
+Haverão perguntas sobre conecimento gerais. 
+Na sua frente, terão 3 portas, cada uma com uma resposta. 
+Basta digitar 1, 2 ou 3 para escolher a porta com a resposta certa.
+""")
+
+    pergunta = int(input("Voce entendeu? 1- sim 2-nao: "))
+   
+    if pergunta == 2:
+        os.system('cls')
+        
+    else: #exemplo da porta
+        print("Otimo, a porta sera nesse estilo:")
+        time.sleep(2)
+        os.system('cls')
+        print("""
+         __________________
+        |                  |
+        |                  |
+        |     EXEMPLO      |
+        |                  |
+        |       ____       |
+        |      |    |      |
+        |      |    |      |
+        |      |    |      |
+        |      |    |      |
+        |      |    |      |
+        |      |    |    o |
+        |______|____|______|
+        
+        """)
+        break
+
+time.sleep(2)
+os.system('cls')
+
+print("Então. Vamos as Perguntas!!")
+time.sleep(1)
+
+dicionario_perguntas = {  #dicionario, onde a chave é a pergunta, e no valor, possui uma lista com as alternativas.
+"Qual a Capital do Brasil?" : ["brasilia" , "Campo grande" , "sao paulo" ],
+"Qual o melhor carro existente? " : ["mustang", "camaro" , "civic"],
+"Qual o melhor poder? " : ["gelo", "fogo" , "agua"] 
+}
+
+pergunta_sorteada = random.choice(list(dicionario_perguntas.keys())) #dicionario_perguntas.keys() armazena as perguntas (chaves) do dicionario.
+respostas  = dicionario_perguntas[pergunta_sorteada] #pega o valor da chave da pergunta, ou seja, as alternativas.
+
+resposta_correta = dicionario_perguntas[pergunta_sorteada][0] #resposta certa
+random.shuffle(respostas) #embaralha as respostas
+
+print(f"A pergunta é: {pergunta_sorteada}")
+
+
+def portas(numero, respostas):  #função para mostrar as portas, baseando no modelo la em cima. Colocando o numero (indice) e respostas (valor do dicionario)
+    return f"""
+         __________________
+        |                  |
+        |   porta {numero} |
+        |                  |
+        |    {respostas}   |
+        |       ____       |
+        |      |    |      |
+        |      |    |      |
+        |      |    |      |
+        |      |    |      |
+        |      |    |      |
+        |      |    |    o |
+        |______|____|______|  
+"""
+for  i, reposta in enumerate(respostas, 1): #esse enumerate percorre a lista adicionando um indice para cada item (1,2,3...)
+    print(portas(i, reposta)) #printa as portas
+    
+try: 
+    escolha = int(input("Digite o numero da porta correta: "))
+    if respostas[escolha - 1] == resposta_correta: #compara a sua resposta com a da porta. E o -1 é pq os indices começam em 0
+        time.sleep(2)
+        print("Parabens, voce acertou")
+        time.sleep(1)
+        
+        os.system('cls')        
+        
+    else:
+        print("Porta errada")
+except:
+    print("Digite uma opção valida: 1, 2 ou 3") #caso o usuario digite outra coisa
+    
+    
+
+dicionario_perguntas.pop(pergunta_sorteada) # removendo a pergunta sorteada do dicionario, para nao ter a chance de repeti-la nas proximas. 
+        
+#------------------------------------------------------PERGUNTA 2----------------------------------------------------------------------------
+
+        
+
+pergunta_sorteada = random.choice(list(dicionario_perguntas.keys())) 
+respostas  = dicionario_perguntas[pergunta_sorteada] 
+resposta_correta = dicionario_perguntas[pergunta_sorteada][0] 
+random.shuffle(respostas) 
+
+
+print("Proxima pergunta....")
+time.sleep(2)
+
+print(f"A pergunta é: {pergunta_sorteada}")
+
+for  i, reposta in enumerate(respostas, 1): 
+    print(portas(i, reposta)) 
+
+try: 
+    escolha = int(input("Digite o numero da porta correta: "))
+    if respostas[escolha - 1] == resposta_correta: 
+        time.sleep(2)
+        print("Parabens, voce acertou")
+        time.sleep(1)
+        os.system('cls')        
+    else:
+        print("Porta errada")
+except:
+    print("Digite uma opção valida: 1, 2 ou 3")
+    
+dicionario_perguntas.pop(pergunta_sorteada)
+
+#------------------------------------------------------PERGUNTA 3----------------------------------------------------------------------------
+
+pergunta_sorteada = random.choice(list(dicionario_perguntas.keys())) 
+respostas  = dicionario_perguntas[pergunta_sorteada] 
+resposta_correta = dicionario_perguntas[pergunta_sorteada][0] 
+random.shuffle(respostas) 
+
+
+print("Proxima pergunta....")
+time.sleep(2)
+
+print(f"A pergunta é: {pergunta_sorteada}")
+
+for  i, reposta in enumerate(respostas, 1): 
+    print(portas(i, reposta)) 
+
+try: 
+    escolha = int(input("Digite o numero da porta correta: "))
+    if respostas[escolha - 1] == resposta_correta: 
+        time.sleep(2)
+        print("Parabens, voce acertou")
+        time.sleep(2)
+        print("E com isso, chegou ao final do nosso desafio. Parabens!!!")        
+    else:
+        print("Porta errada, começe do 0 HAHAHAHA")
+except:
+    print("Digite uma opção valida: 1, 2 ou 3")
