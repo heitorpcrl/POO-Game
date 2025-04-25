@@ -2,6 +2,7 @@
 
 **Disciplina:** POO  
 **Entrega:** [24/04/25] até as [21:50Hms]
+** Nomes: **Heitor Santos Cortes, Felipe Shinkae, Erick costa
 
 ---
 
