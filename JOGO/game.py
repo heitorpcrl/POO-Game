@@ -1,3 +1,5 @@
+# NOME DO GRUPO: Heitor Santos Cortes, Felipe Shinkae, Erick Costa
+
 import os
 import time
 import random
